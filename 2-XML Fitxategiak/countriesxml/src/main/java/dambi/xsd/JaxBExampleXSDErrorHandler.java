@@ -4,8 +4,8 @@ import java.io.File;
 import java.time.LocalDate;
 
 import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.util.JAXBSource;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.util.JAXBSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
