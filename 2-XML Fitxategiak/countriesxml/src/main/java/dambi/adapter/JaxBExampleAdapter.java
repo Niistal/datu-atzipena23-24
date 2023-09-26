@@ -1,20 +1,23 @@
-package dambi;
+package dambi.adapter;
 
 import java.io.File;
 import java.time.LocalDate;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import dambi.business.Country;
 
 
 
 /**
- * Simple example of usage of jaxb marshaling functionalities
+ * Simple example of usage of jaxb marshaling functionalities when managing complex classes, in this
+ * case java.time.LocalDate
  * 
  * @author dgutierrez-diez
  */
-public class JaxBExampleSimple
+public class JaxBExampleAdapter
 {
 
     public static void main( String[] args )
@@ -23,14 +26,13 @@ public class JaxBExampleSimple
         {
 
             /* init very simple data to marshal */
-            Country spain = new Country();
-            spain.setName( "Spain" );
-            spain.setCapital( "Madrid" );
-            spain.setContinent( "Europe" );
-            /* spain.setFoundation( LocalDate.of( 1469, 10, 19 ) ); */
+            Country country = new Country();
+            country.setName( "Spain" );
+            country.setCapital( "Madrid" );
+            country.setContinent( "Europe" );
 
-            
-            spain.setPopulation( 45000000 );
+
+            country.setFoundation( LocalDate.of( 1469, 10, 19 ) );
 
             /* init jaxb marshaler */
             JAXBContext jaxbContext = JAXBContext.newInstance( Country.class );
@@ -40,8 +42,9 @@ public class JaxBExampleSimple
             jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
 
             /* marshaling of java objects in xml (output to file and standard output) */
-            jaxbMarshaller.marshal( spain, new File( "country.xml" ) );
-            jaxbMarshaller.marshal( spain, System.out );
+            jaxbMarshaller.marshal( country, new File( "country_adapter.xml" ) );
+            jaxbMarshaller.marshal( country, System.out );
+
         }
         catch( JAXBException e )
         {
@@ -50,4 +53,3 @@ public class JaxBExampleSimple
 
     }
 }
-
