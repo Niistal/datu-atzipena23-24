@@ -11,7 +11,7 @@ public class JsonFitxategiaIrakurri {
         
         JsonReader reader = Json.createReader(new FileReader("data/Irteera.json"));
         JsonStructure jsonst = reader.read();
-        
+        System.out.println(jsonst);
     }
     
     
