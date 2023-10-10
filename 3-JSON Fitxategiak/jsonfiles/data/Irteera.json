@@ -1,0 +1,1 @@
+{"id":"file","popup":{"menuitem":[{"Value":"New","onClick":"createnewdoc"},{"Value":"Open","onClick":"opendoc"},{"Value":"Close","onClick":"closedoc"}]}}

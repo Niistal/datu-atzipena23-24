@@ -1,4 +1,4 @@
-package dambi.mendiak;
+package dambi.marshal;
 import java.lang.annotation.Documented;
 import java.util.ArrayList;
 import java.util.List;
