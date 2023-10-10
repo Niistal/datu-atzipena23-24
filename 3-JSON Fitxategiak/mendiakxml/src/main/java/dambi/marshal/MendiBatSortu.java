@@ -17,7 +17,7 @@ public class MendiBatSortu {
         karakate.setIzena("Karakate");
         karakate.setAltuera(749);
         karakate.setProbintzia("gipuzkoa");
-        karakate.setHerriadia("Elgoibar");
+        karakate.setHerria("Elgoibar");
 
     }
 
