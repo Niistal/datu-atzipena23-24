@@ -19,7 +19,7 @@ import dambi.nistalproject.model.*;
 
 
 @RestController // This means that this class is a Controller baina @Controller bakarrik jarrita, PUT eta DELETEak ez dabiz
-@RequestMapping(path = "/home") // This means URL's start with /demo (after Application path)
+@RequestMapping(path = "/movies/home") // This means URL's start with /demo (after Application path)
 public class MainController {
 
     @Autowired // This means to get the bean called umeaRepository
@@ -86,6 +86,20 @@ public class MainController {
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
         }
+    }
+    
+    @DeleteMapping(path = "/deletemovie/{title}")
+    public ResponseEntity<Void> deletemovie(@PathVariable String title) {
+        try {
+            long zenbat = movieRepository.delete(title);
+            System.out.println("Ezabatutako ume kopurua🔆: " + zenbat);
+            return ResponseEntity.ok().build();
+
+        } catch (Exception ex) {
+            System.out.println("Errorea " + title + " umea ezabatzerakoan. ");
+            return ResponseEntity.notFound().build();
+        }
+    
     }
     
     

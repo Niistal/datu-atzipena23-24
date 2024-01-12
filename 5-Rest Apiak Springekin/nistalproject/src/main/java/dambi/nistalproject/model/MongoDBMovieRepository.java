@@ -19,6 +19,7 @@ import com.mongodb.client.MongoCollection;
 
 import static com.mongodb.client.model.Filters.eq;
 
+@Repository
 public class MongoDBMovieRepository implements MovieRepository{
 
         private static final TransactionOptions txnOptions = TransactionOptions.builder()
@@ -29,11 +30,10 @@ public class MongoDBMovieRepository implements MovieRepository{
         @Autowired
         private MongoClient client;
         private MongoCollection<Movie> moviesCollection;
-        private MongoCollection<Actor> actorsCollection;
 
         @PostConstruct
         void init() {
-            moviesCollection = client.getDatabase("Movies").getCollection("movie", Movie.class);
+            moviesCollection = client.getDatabase("movies").getCollection("movie", Movie.class);
         }
 
         @Override
