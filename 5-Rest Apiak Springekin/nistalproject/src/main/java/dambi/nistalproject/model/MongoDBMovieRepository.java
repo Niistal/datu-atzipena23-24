@@ -57,10 +57,7 @@ public class MongoDBMovieRepository implements MovieRepository{
         public long delete(String title) {
             return moviesCollection.deleteMany(eq("title", title)).getDeletedCount();
         }
-        @Override
-        public long deleteActor(String name ) {
-            return actorsCollection.deleteMany(eq("name", name)).getDeletedCount();
-        }
+        
     
 
     }
