@@ -32,7 +32,7 @@ public class LehenRestapiaApplication {
 
 		String strEmaitza = "";
 		for (int i = 1; i <= Integer.parseInt(norarte); i++) {
-			strEmaitza += (i + "\n");
+			strEmaitza += (i + "\n")+ "<br>";
 		}
 		return strEmaitza;
 	}
