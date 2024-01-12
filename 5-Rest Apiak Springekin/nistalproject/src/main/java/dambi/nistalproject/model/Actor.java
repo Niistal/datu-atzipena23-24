@@ -1,5 +1,7 @@
 package  dambi.nistalproject.model;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 
 public class Actor {
@@ -10,8 +12,11 @@ public class Actor {
     private int id;
     private String name;
     private int order;// auto increment
+    private List <String> actors;
 
-    public Actor(ObjectId objid, int cast_id, String character, int gender, int id, String name, int order) {
+
+    public Actor(ObjectId objid, int cast_id, String character, int gender, int id, String name, int order,
+            List<String> actors) {
         this.objid = objid;
         this.cast_id = cast_id;
         this.character = character;
@@ -19,6 +24,7 @@ public class Actor {
         this.id = id;
         this.name = name;
         this.order = order;
+        this.actors = actors;
     }
 
     public Actor() {
@@ -26,6 +32,14 @@ public class Actor {
     }
 
     
+    public List<String> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<String> actors) {
+        this.actors = actors;
+    }
+
     public ObjectId getObjid() {
         return objid;
     }

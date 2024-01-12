@@ -10,15 +10,17 @@ public class Movie  {
     
     private ObjectId id;
     private int movieId;
-    
+    private List <String> movies;
     private String title;
     
-    Actor actor = new Actor(id, movieId, title, movieId, movieId, title, movieId);
+    Actor actor = new Actor(id, movieId, title, movieId, movieId, title, movieId,movies);
 
 
-    public Movie(ObjectId id, int movieId, String title, Actor actor) {
+
+    public Movie(ObjectId id, int movieId, List<String> movies, String title, Actor actor) {
         this.id = id;
         this.movieId = movieId;
+        this.movies = movies;
         this.title = title;
         this.actor = actor;
     }
@@ -26,6 +28,14 @@ public class Movie  {
     public Movie() {
         
     }
+    public void setMovies(List<String> movies) {
+        this.movies = movies;
+    }
+
+    public List <String> getMovies() {
+        return movies;
+    }
+
     public ObjectId getId() {
         return id;
     }
@@ -59,7 +69,9 @@ public class Movie  {
     }
     @Override
     public String toString() {
-        return "Movie [id=" + id + ", movieId=" + movieId + ", title=" + title + ", actor=" + actor + "]";
+        return "Movie [id=" + id + ", movieId=" + movieId + ", movies=" + movies + ", title=" + title + ", actor="
+                + actor + "]";
     }
+
 }
 

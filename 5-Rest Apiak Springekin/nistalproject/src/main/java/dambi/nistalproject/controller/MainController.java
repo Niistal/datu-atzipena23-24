@@ -56,4 +56,37 @@ public class MainController {
         return "saved actor";
 
     }
+    
+    @PutMapping(value = "/Newmovie/Id")
+    public ResponseEntity<Movie> updateMovie(@Valid @RequestBody String title, @PathVariable String Id) {
+        try {
+            Movie m = movieRepository.findById(Id);
+            List<String> movies = m.getMovies();
+            movies.add(title);
+            m.setMovies(movies);
+            movieRepository.save(m);
+
+            return ResponseEntity.ok().build();
+
+        } catch (Exception ex) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PutMapping(value = "/Newactor/actorId")
+    public ResponseEntity<Movie> updateActor(@Valid @RequestBody String character, @PathVariable String actorId) {
+        try {
+            Actor a = actorRepository.findByIdActor(actorId);
+            List<String> actors = a.getActors();
+            actors.add(character);
+            a.setActors(actors);
+            actorRepository.saveActor(a);
+
+            return ResponseEntity.ok().build();
+
+        } catch (Exception ex) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    
 }
